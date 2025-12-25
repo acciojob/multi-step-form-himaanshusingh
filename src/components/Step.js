@@ -72,7 +72,7 @@ const Step = () => {
       </div>
       {last}
     </form>
-  ); // prettier-ignoreg
+  ); // prettier-ignore
 };
 
 export default Step;
