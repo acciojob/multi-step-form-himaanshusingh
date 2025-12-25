@@ -37,35 +37,41 @@ const Step = () => {
   }
 
   return (
-    <div id="container">
-      {first && (
-        <form id="step1">
-          <h2>Customer Details</h2>
-          <input type="text" placeholder="First Name" id="first_name" />
-          <input type="text" placeholder="Last Name" id="last_name" />
-          <button onClick={handleStep1}>Next</button>
-        </form>
-      )}
-      {second && (
-        <form id="step2">
-          <h2>Car Details</h2>
-          <input type="text" placeholder="Model" id="model" />
-          <input type="text" placeholder="Car Price" id="car_price" />
-          <button onClick={handlePrev2}>Previous</button>
-          <button onClick={handleStep2}>Next</button>
-        </form>
-      )}
-      {third && (
-        <form id="step3">
-          <h2>Payment Details</h2>
-          <input type="text" placeholder="Card Info" id="card_info" />
-          <input type="text" placeholder="Expiry Date" id="expiry_date" />
-          <button onClick={handlePrev3}>Previous</button>
-          <button onClick={handleStep3}>Submit</button>
-        </form>
-      )}
+    <form>
+      <div id="step1">
+        {first && (
+          <div id="step1Data">
+            <h2>Customer Details</h2>
+            <input type="text" placeholder="First Name" id="first_name" />
+            <input type="text" placeholder="Last Name" id="last_name" />
+            <button onClick={handleStep1}>Next</button>
+          </div>
+        )}
+      </div>
+      <div id="step2">
+        {second && (
+          <div id="step2Data">
+            <h2>Car Details</h2>
+            <input type="text" placeholder="Model" id="model" />
+            <input type="text" placeholder="Car Price" id="car_price" />
+            <button onClick={handlePrev2}>Previous</button>
+            <button onClick={handleStep2}>Next</button>
+          </div>
+        )}
+      </div>
+      <div id="step3">
+        {third && (
+          <div id="step3Data">
+            <h2>Payment Details</h2>
+            <input type="text" placeholder="Card Info" id="card_info" />
+            <input type="text" placeholder="Expiry Date" id="expiry_date" />
+            <button onClick={handlePrev3}>Previous</button>
+            <button onClick={handleStep3}>Submit</button>
+          </div>
+        )}
+      </div>
       {last}
-    </div>
+    </form>
   );
 };
 
