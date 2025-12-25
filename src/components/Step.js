@@ -65,18 +65,14 @@ const Step = () => {
             <h2>Payment Details</h2>
             <input type="text" placeholder="Card Info" id="card_info" />
             <input type="text" placeholder="Expiry Date" id="expiry_date" />
-            <button type="button" onClick={handlePrev3}>
-              Previous
-            </button>
-            <button type="button" onClick={handleStep3}>
-              Submit
-            </button>
+            <button type="button" onClick={handlePrev3}>Previous</button>
+            <button type="button" onClick={handleStep3}>Submit</button>
           </div>
         )}
       </div>
       {last}
     </form>
-  );
+  ); // prettier-ignoreg
 };
 
 export default Step;
