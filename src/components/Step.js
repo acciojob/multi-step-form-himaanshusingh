@@ -39,29 +39,29 @@ const Step = () => {
   return (
     <div id="container">
       {first && (
-        <form onSubmit={handleStep1} id="step1">
+        <form id="step1">
           <h2>Customer Details</h2>
           <input type="text" placeholder="First Name" id="first_name" />
           <input type="text" placeholder="Last Name" id="last_name" />
-          <button>Next</button>
+          <button onClick={handleStep1}>Next</button>
         </form>
       )}
       {second && (
-        <form onSubmit={handleStep2} id="step2">
+        <form id="step2">
           <h2>Car Details</h2>
           <input type="text" placeholder="Model" id="model" />
           <input type="text" placeholder="Car Price" id="car_price" />
           <button onClick={handlePrev2}>Previous</button>
-          <button>Next</button>
+          <button onClick={handleStep2}>Next</button>
         </form>
       )}
       {third && (
-        <form onSubmit={handleStep3} id="step3">
+        <form id="step3">
           <h2>Payment Details</h2>
           <input type="text" placeholder="Card Info" id="card_info" />
           <input type="text" placeholder="Expiry Date" id="expiry_date" />
           <button onClick={handlePrev3}>Previous</button>
-          <button>Submit</button>
+          <button onClick={handleStep3}>Submit</button>
         </form>
       )}
       {last}
