@@ -44,7 +44,7 @@ const Step = () => {
             <h2>Customer Details</h2>
             <input type="text" placeholder="First Name" id="first_name" />
             <input type="text" placeholder="Last Name" id="last_name" />
-            <input type="button" value="Next" onClick={handleStep1} />
+            <button type="button" onClick={handleStep1}>Next</button>
           </div>
         )}
       </div>
@@ -54,8 +54,8 @@ const Step = () => {
             <h2>Car Details</h2>
             <input type="text" placeholder="Model" id="model" />
             <input type="text" placeholder="Car Price" id="car_price" />
-            <input type="button" value="Previous" onClick={handlePrev2} />
-            <input type="button" value="Next" onClick={handleStep2} />
+            <button type="button" onClick={handlePrev2}>Previous</button>
+            <button type="button" onClick={handleStep2}>Next</button>
           </div>
         )}
       </div>
@@ -65,8 +65,12 @@ const Step = () => {
             <h2>Payment Details</h2>
             <input type="text" placeholder="Card Info" id="card_info" />
             <input type="text" placeholder="Expiry Date" id="expiry_date" />
-            <input type="button" value="Previous" onClick={handlePrev3} />
-            <input type="button" value="Submit" onClick={handleStep3} />
+            <button type="button" onClick={handlePrev3}>
+              Previous
+            </button>
+            <button type="button" onClick={handleStep3}>
+              Submit
+            </button>
           </div>
         )}
       </div>
