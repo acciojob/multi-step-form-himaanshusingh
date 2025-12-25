@@ -1,66 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Step = ({ step, formData, nextStep, prevStep, onChange, onSubmit }) => {
+const Step = () => {
+  const [first, setFirst] = useState(true);
+  const [second, setSecond] = useState(false);
+  const [third, setThird] = useState(false);
+  const [last, setLast] = useState("");
+
+  function handleStep1(e) {
+    e.preventDefault();
+    setFirst(false);
+    setSecond(true);
+  }
+
+  function handleStep2(e) {
+    e.preventDefault();
+    setSecond(false);
+    setThird(true);
+  }
+
+  function handleStep3(e) {
+    e.preventDefault();
+    setThird(false);
+    setLast("Your Form has been submitted successfully.");
+  }
+
+  function handlePrev2(e) {
+    e.preventDefault();
+    setSecond(false);
+    setFirst(true);
+  }
+
+  function handlePrev3(e) {
+    e.preventDefault();
+    setThird(false);
+    setSecond(true);
+  }
+
   return (
-    <div className="form-card">
-      {/* STEP 1 */}
-      <form id="step1" style={{ display: step === 1 ? "block" : "none" }}>
-        <h3>Customer Details</h3>
-
-        <label htmlFor="first_name">First Name</label>
-        <input
-          id="first_name"
-          value={formData.first_name}
-          onChange={onChange}
-        />
-
-        <label htmlFor="last_name">Last Name</label>
-        <input id="last_name" value={formData.last_name} onChange={onChange} />
-
-        <button type="button" onClick={nextStep}>
-          Next
-        </button>
-      </form>
-
-      {/* STEP 2 */}
-      <form id="step2" style={{ display: step === 2 ? "block" : "none" }}>
-        <h3>Car Details</h3>
-
-        <label htmlFor="model">Car Model</label>
-        <input id="model" value={formData.model} onChange={onChange} />
-
-        <label htmlFor="car_price">Car Price</label>
-        <input id="car_price" value={formData.car_price} onChange={onChange} />
-
-        <button type="button" onClick={prevStep}>
-          Previous
-        </button>
-        <button type="button" onClick={nextStep}>
-          Next
-        </button>
-      </form>
-
-      {/* STEP 3 */}
-      <form id="step3" style={{ display: step === 3 ? "block" : "none" }}>
-        <h3>Payment Details</h3>
-
-        <label htmlFor="card_info">Card Information</label>
-        <input id="card_info" value={formData.card_info} onChange={onChange} />
-
-        <label htmlFor="expiry_date">Expiry Date</label>
-        <input
-          id="expiry_date"
-          value={formData.expiry_date}
-          onChange={onChange}
-        />
-
-        <button type="button" onClick={prevStep}>
-          Previous
-        </button>
-        <button type="button" onClick={onSubmit}>
-          Submit
-        </button>
-      </form>
+    <div id="container">
+      {first && (
+        <form onSubmit={handleStep1}>
+          <h2>Customer Details</h2>
+          <input type="text" placeholder="First Name" id="first_name" />
+          <input type="text" placeholder="Last Name" id="last_name" />
+          <button>Next</button>
+        </form>
+      )}
+      {second && (
+        <form onSubmit={handleStep2}>
+          <h2>Car Details</h2>
+          <input type="text" placeholder="Model" id="model" />
+          <input type="text" placeholder="Car Price" id="car_price" />
+          <button onClick={handlePrev2}>Previous</button>
+          <button>Next</button>
+        </form>
+      )}
+      {third && (
+        <form onSubmit={handleStep3}>
+          <h2>Payment Details</h2>
+          <input type="text" placeholder="Card Info" id="card_info" />
+          <input type="text" placeholder="Expiry Date" id="expiry_date" />
+          <button onClick={handlePrev3}>Previous</button>
+          <button>Submit</button>
+        </form>
+      )}
+      {last}
     </div>
   );
 };
